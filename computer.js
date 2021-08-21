@@ -38,8 +38,10 @@ Computer.prototype.execute = function(_instructions) {
         switch(declaration[0]) {
             case '#ip':
                 this.ip = declaration[1];
+								break;
             case '#break':
                 breakPoint = parseInt(declaration[1]);
+								break;
         }
     }
 
