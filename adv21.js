@@ -28,5 +28,19 @@ function findCheckingInstruction(instructions) {
 let checkingInstructionLine, register;
 [checkingInstructionLine, register] = findCheckingInstruction(instructions)
 let computer = new Computer();
-let instructionsExecuted = computer.execute([["#break", checkingInstructionLine]].concat(instructions));
-console.log("Part one:", computer.state[register])
+computer.execute([["#break", checkingInstructionLine]].concat(instructions));
+let partOne = computer.state[register]
+console.log("Part one:", partOne)
+
+let values = {}
+let partTwo;
+do {
+	partTwo = computer.state[register]
+	values[partTwo] = 1
+computer.execute([["#break", checkingInstructionLine]].concat(instructions));
+// console.log("Register", computer.state[register])
+} while (!values[computer.state[register]])
+
+console.log("Part two:", partTwo)
+
+

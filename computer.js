@@ -56,17 +56,18 @@ Computer.prototype.execute = function(_instructions) {
     let n = 0;
     for (let i = this.state[this.ip]; i < code.length; i = this.state[this.ip]) {
 
-        //process.stdout.write(this.toString() + " " + instructions[i].join(" ") + "\n");
+        // process.stdout.write(this.toString() + " " + instructions[i].join(" ") + "\n");
         iStats[i]++;
 
-        if (breakPoint === i)
-            break;
         /*
         if (n++ == 40000)
             break;
             */
         code[i][0].apply(this, code[i][1]);
         this.state[this.ip]++;
+
+        if (breakPoint === i)
+            break;
     }
 
 }
