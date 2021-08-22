@@ -242,7 +242,7 @@ function findTidiestPath(cave) {
       continue
     }
     if (walker.coord.equals(cave.target)) {
-      console.log(`Target reached in ${walker.time}`)
+      // console.log(`Target reached in ${walker.time}`)
       // console.log(walker.log.map(w => w.toString()).join("\n"))
       // checkPath(cave, walker.log)
       fastestRoute = Math.min(fastestRoute, walker.time)
